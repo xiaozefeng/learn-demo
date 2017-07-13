@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title></title>
+
+</head>
+
+<body>
+    <h2>打开控制台观察变化</h2>
+    <h2>在文本框输入字符，观察控制台</h2>
+    <h2>在控制台输入 app.$destroy()</h2>
+    <div id="app">
+        <input type="text" v-model="message" name="" value="">
+    </div>
+</body>
+<script src="../lib/vue2.3.4.min.js" charset="utf-8"></script>
+<script type="text/javascript">
+    let app = new Vue({
+        el: '#app',
+        data: {
+            message:''
+        },
+        created() {
+            console.log("created");
+        },
+        mounted() {
+            console.log("mounted");
+        },
+        destroyed() {
+            console.log("destroyed");
+        },
+        updated() {
+            console.log("updated");
+        }
+    })
+</script>
+
+</html>

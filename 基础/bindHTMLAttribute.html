@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>绑定html属性</title>
+</head>
+
+<body>
+    <div id="app" >
+        <div>
+            disabled属性
+            <button :disabled="isButtonDisabled">Button</button>
+        </div>
+        <div>
+            readonly属性
+            <input type="text" :readonly="isInputReadonly" value="是否可填写">
+        </div>
+    </div>
+</body>
+<script src="../lib/vue2.3.4.min.js" charset="utf-8"></script>
+<script type="text/javascript">
+    var app = new Vue({
+        el: '#app',
+        data: {
+            isButtonDisabled: false,
+            isInputReadonly: false
+        }
+    });
+</script>
+
+</html>

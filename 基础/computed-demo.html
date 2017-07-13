@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+    </head>
+    <body>
+        <div id="app">
+            <p>
+                fullName: {{fullName}}
+            </p>
+            <p>
+                firstName: {{firstName}}
+                <br>
+                lastName : {{lastName}}
+            </p>
+            <h3>尝试在控制台改变firstName、lastName、fullName的值，并观察变化</h3>
+        </div>
+    </body>
+    <script src="../lib/vue2.3.4.min.js" charset="utf-8"></script>
+    <script type="text/javascript">
+        let app = new Vue({
+            el:'#app',
+            data: {
+                firstName: 'Foo',
+                lastName: 'Bar'
+            },
+            computed: {
+                fullName: {
+                    get(){
+                        return this.firstName + ' ' +this.lastName;
+                    },
+                    set(newValue){
+                        var names = newValue.split(" ");
+                        this.firstName = names[0];
+                        this.lastName =names[names.length-1];
+                    }
+                }
+            }
+        })
+    </script>
+</html>
