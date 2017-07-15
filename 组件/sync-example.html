@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>is关键字用法</title>
+
+</head>
+
+<body>
+    <div id="app">
+        <button type="button" @click="parentVisible = true">change visible</button>
+        <div>父组件 parentVisible: {{parentVisible}}</div>
+        <v-dialog :visible.sync="parentVisible"></v-dialog>
+
+    </div>
+</body>
+<script src="../lib/vue2.3.4.min.js" charset="utf-8"></script>
+<script type="text/javascript">
+    Vue.component("v-dialog", {
+        template: `
+            <div>
+                <div>I am dialog </div>
+                <div>子组件的visible {{visible}}</div>
+                <button type="button" @click="changeVisible">change parentVisible</button>
+            </div>
+        `,
+        props: ['visible'],
+        methods: {
+            changeVisible() {
+                this.$emit("update:visible", false);
+            }
+        }
+    });
+
+    let app = new Vue({
+        el: '#app',
+        data: {
+            parentVisible: false
+        }
+    })
+</script>
+
+</html>

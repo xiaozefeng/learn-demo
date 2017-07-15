@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>is关键字用法</title>
+    <style media="screen">
+        img{
+            width: 600px;
+            height: 400px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <h1>打开控制台查看元素</h1>
+        <h2>没有使用is 关键字的table</h2>
+        <table id="table1">
+            <cus-tr></cus-tr>
+            <cus-tr></cus-tr>
+        </table>
+        <img src="http://7xv4mv.com1.z0.glb.clouddn.com/blog/2017-07-14-020136.jpg" alt="">
+
+        <h2>使用is 关键字的table</h2>
+        <table id="table2">
+            <tr is="cus-tr"></tr>
+            <tr is="cus-tr"></tr>
+        </table>
+        <img src="http://7xv4mv.com1.z0.glb.clouddn.com/blog/2017-07-14-020223.jpg" alt="">
+    </div>
+</body>
+<script src="../lib/vue2.3.4.min.js" charset="utf-8"></script>
+<script type="text/javascript">
+    //全局组件
+    Vue.component('cus-tr',{
+        template: `<tr>I am a row</tr>`,
+        data(){
+            return {
+
+            }
+        }
+    });
+
+    let app = new Vue({
+        el: '#app',
+        data: {
+
+        }
+    })
+</script>
+
+</html>

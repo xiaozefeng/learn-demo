@@ -13,9 +13,9 @@
     <h2>可以打开控制台输入 app.message = 'Hello world' 观察变化</h2>
 
     <div id="app">
-        <input type="text" v-model="message">
+        <input type="text" :value="message" @input="message = $event.target.value">
         <div>
-             {{message}}
+             {{$data}}
         </div>
     </div>
 </body>
@@ -24,7 +24,10 @@
     let app = new Vue({
         el: '#app',
         data: {
-            message: ''
+            message: '',
+            obj:{
+
+            }
         }
     })
 </script>

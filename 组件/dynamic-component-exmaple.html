@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>动态组件</title>
+
+</head>
+
+<body>
+    <div id="app">
+        <button type="button" @click="currntView='home'">Home</button>
+        <button type="button" @click="currntView='about'">About</button>
+
+        <compoent :is="currntView">
+
+        </compoent>
+    </div>
+</body>
+<script src="../lib/vue2.3.4.min.js" charset="utf-8"></script>
+<script type="text/javascript">
+    const Home = {
+        template: '<div>I am Home </div>'
+    }
+
+    const About = {
+        template: '<div>I am About</div>'
+    }
+
+    let app = new Vue({
+        el: '#app',
+        data: {
+            currntView: 'home'
+        },
+        components: {
+            home: Home,
+            about: About
+        }
+    })
+</script>
+
+</html>

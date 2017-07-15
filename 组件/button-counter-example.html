@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>is关键字用法</title>
+    <style media="screen">
+        img{
+            width: 600px;
+            height: 400px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <button>{{countTotal}}</button>
+        <br>
+        <button-counter @increment="incrementTotal"></button-counter>
+        <button-counter @increment="incrementTotal"></button-counter>
+    </div>
+</body>
+<script src="../lib/vue2.3.4.min.js" charset="utf-8"></script>
+<script type="text/javascript">
+    //全局组件
+    Vue.component('button-counter',{
+        template: `
+            <button type="button" @click="increment">{{count}}</button>
+        `,
+        data(){
+            return {
+                count: 0
+            }
+        },
+        methods: {
+            increment(){
+                this.count +=1;
+                this.$emit('increment');
+            }
+        }
+    });
+
+    let app = new Vue({
+        el: '#app',
+        data: {
+            countTotal: 0
+        },
+        methods: {
+            incrementTotal(){
+                this.countTotal +=1;
+            }
+        }
+    })
+</script>
+
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title></title>
+</head>
+
+<body>
+    <div id="app">
+        <h4>
+            当它们处于同一节点， v-for 的优先级比 v-if 更高，这意味着 v-if 将分别重复运行于每个 v-for 循环中。当你想为仅有的 一些 项渲染节点时，这种优先级的机制会十分有用，如下：
+        </h4>
+        <ul>
+            只会渲染传递了isComplete 并且isComplete 为true的元素
+            <li v-for="item of todos" v-if="item.isComplete">
+                {{item.title}}
+            </li>
+        </ul>
+    </div>
+</body>
+<script src="../lib/vue2.3.4.min.js" charset="utf-8"></script>
+<script type="text/javascript">
+    let app = new Vue({
+        el: '#app',
+        data: {
+            todos: [
+                {title: '1',isComplete: false},
+                {title: '2',isComplete: true},
+                {title: '3',isComplete: false},
+                {title: '4',isComplete: true},
+                {title: '4'}
+            ]
+        }
+    })
+</script>
+
+</html>

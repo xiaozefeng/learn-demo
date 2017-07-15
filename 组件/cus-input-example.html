@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>自定义输入组件</title>
+
+</head>
+
+<body>
+    <div id="app">
+        <cus-input v-model="msg"></cus-input>
+        <div>{{msg}}</div>
+    </div>
+</body>
+<script src="../lib/vue2.3.4.min.js" charset="utf-8"></script>
+<script type="text/javascript">
+    //全局组件
+    Vue.component('cus-input',{
+        template: `
+            <span>
+                <input ref="input" :value="value" @input="updateValue($event.target.value)" />
+            </span>
+        `,
+        props: ["value"],
+        data(){
+            return {
+
+            }
+        },
+        methods: {
+            updateValue(newValue){
+                console.log(this.$refs);
+                console.log(this.$refs.input.value);
+                this.$emit("input",newValue);
+            }
+        }
+    });
+
+    let app = new Vue({
+        el: '#app',
+        data: {
+            msg: ''
+        }
+    })
+</script>
+
+</html>

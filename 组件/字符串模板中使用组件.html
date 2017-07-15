@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <style media="screen">
+
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <h2>使用字符串模板可以无视元素包裹的限时</h2>
+        <cus-table></cus-table>
+    </div>
+</body>
+<script src="../lib/vue2.3.4.min.js" charset="utf-8"></script>
+<script type="text/javascript">
+    //tr组件
+    Vue.component('cus-tr',{
+        template: `
+            <tr>I am a tr</tr>
+        `
+    })
+
+    //table 组件 引用tr组件
+    Vue.component('cus-table',{
+        template: `
+            <table>
+                <cus-tr></cus-tr>
+                <cus-tr></cus-tr>
+                <cus-tr></cus-tr>
+            </table>
+        `,
+        data(){
+            return {
+
+            }
+        }
+    });
+
+    let app = new Vue({
+        el: '#app',
+        data: {
+
+        }
+    })
+</script>
+
+</html>
